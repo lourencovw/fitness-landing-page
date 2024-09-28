@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.video-container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  z-index: 2; /* Higher z-index to stay on top of overlay */
+  height: 77px;
+  margin: auto;
+}
+.navbar .navbar-container {
+  padding: 30px;
+  height: 100%;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .navbar-container .logo {
+  width: 140px;
+  height: 100%;
+}
+.navbar .navbar-container a img {
+  height: 90%;
+}
+.navbar .logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .nav-links {
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0;
+  width: 320px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar .cta a {
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Main Content */
+.content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2; /* Ensures content stays above the overlay */
+}
+
+.content h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 48px;
+  margin-bottom: 20px;
+  max-width: 572px;
+  margin: auto;
+  padding: 0 30px;
+}
+
+.content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  margin-bottom: 20px;
+  max-width: 674px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
+  padding: 0 30px;
+}
+
+.btn {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+  background-color: #d78b45;
+  border-style: solid;
+  border-width: 0px 3px 2px 0px;
+  border-color: #ffffff;
+  border-radius: 0px 0px 0px 0px;
+  padding: 19px 33px 19px 33px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+main,
+section {
+  width: 100%;
+}
