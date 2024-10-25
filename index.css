@@ -1,33 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+:root {
+  --yellow: #e79447;
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #151515;
+}
+
+/* START - GLOBAL RULES */
 html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "Roboto Condensed", sans-serif;
 }
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+video {
+  display: flex;
+}
+/* END - GLOBAL RULES */
+
 .video-container {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   z-index: -1;
 }
 
 .background-video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  filter: brightness(50%);
 }
 
 .video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-  z-index: 1;
+  overflow: hidden;
+}
+
+.video-overlay .content {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 769px) {
+  .video-overlay {
+    position: relative;
+    height: 100%;
+  }
+  .video-overlay video {
+    width: auto;
+    height: 100%;
+    position: relative;
+    left: -80%;
+  }
 }
 
 /* Navbar */
@@ -39,13 +68,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
   z-index: 2; /* Higher z-index to stay on top of overlay */
   height: 77px;
   margin: auto;
+  padding-top: 5px;
+  transition: background-color 1s ease;
+}
+
+.navbar.darker {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .navbar .navbar-container {
-  padding: 30px;
+  padding: 37px 30px 30px 30px;
   height: 100%;
   width: 1000px;
   display: flex;
@@ -68,7 +102,6 @@ body {
 }
 
 .navbar .nav-links {
-  font-family: "Roboto Condensed", sans-serif;
   display: flex;
   list-style: none;
   justify-content: space-between;
@@ -85,12 +118,14 @@ body {
 }
 
 .navbar .cta a {
-  padding: 10px 20px;
-  background-color: orange;
+  padding: 17px 11px;
+  background-color: transparent;
   color: white;
-  border-radius: 5px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid white;
+  letter-spacing: 1.6px;
 }
 
 /* Main Content */
@@ -105,16 +140,15 @@ body {
 }
 
 .content h1 {
-  font-family: "Roboto Condensed", sans-serif;
   font-size: 48px;
   margin-bottom: 20px;
-  max-width: 572px;
+  max-width: 1135px;
   margin: auto;
   padding: 0 30px;
+  letter-spacing: 7.3px;
 }
 
 .content p {
-  font-family: "Poppins", sans-serif;
   font-size: 15px;
   margin-bottom: 20px;
   max-width: 674px;
@@ -123,9 +157,8 @@ body {
   margin-bottom: 30px;
   padding: 0 30px;
 }
-
+/* BUTTONS */
 .btn {
-  font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   font-weight: 100;
   color: #ffffff;
@@ -139,6 +172,12 @@ body {
   border-radius: 0px 0px 0px 0px;
   padding: 19px 33px 19px 33px;
   animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+.btn.btn-secondary {
+  background-color: #ffffff;
+  color: #d78b45;
 }
 
 @keyframes pulse {
@@ -154,7 +193,221 @@ body {
     transform: scale(1);
   }
 }
+
 main,
 section {
   width: 100%;
+}
+section .container {
+  max-width: 1135px;
+  margin: 0 auto;
+}
+section.best-shape {
+  padding: 60px 0;
+  background-image: url("/files/prancheta.jpg");
+  background-size: cover;
+}
+section.best-shape h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 60px;
+}
+section.best-shape h2.yellow {
+  color: var(--yellow);
+}
+section.best-shape .history {
+  display: grid;
+  column-gap: 25px;
+  grid-template-columns: 45% 45%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 49px;
+}
+section.best-shape .history video {
+  width: 100%;
+}
+section.best-shape .history p {
+  width: 100%;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* create a red section of 34px height, this sections acts like a led panel with a message passing 'suporte 7 dias por semana' */
+section.support {
+  background-color: #ff0000;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.blink {
+  animation: blink 1s linear infinite;
+}
+
+section.carousel {
+  padding: 60px 0;
+  background-color: var(--gray);
+  text-align: center;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.glide__slides {
+  left: -8px;
+}
+.glide {
+  margin-bottom: 60px;
+}
+.glide__slide {
+  padding: 0;
+  margin: 0 !important;
+  /* width is 1/3 of the width of th screen */
+  width: 25vw !important;
+}
+section.carousel .carousel__message {
+  margin: 0;
+  text-align: center;
+  font-size: 60px;
+  color: white;
+}
+section.carousel .carousel__message .top {
+  text-transform: uppercase;
+  letter-spacing: 5.9px;
+  font-weight: 100;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 31px;
+  margin-bottom: 0;
+}
+section.carousel .carousel__message .mid {
+  text-transform: uppercase;
+  margin: 0;
+}
+section.carousel .carousel__message .bottom {
+  margin-top: 0;
+  font-size: 19px;
+}
+
+section.products {
+  padding: 60px 0;
+  text-align: center;
+  background-color: var(--gray);
+}
+
+section.products h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 70px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+section.products h2.yellow {
+  color: var(--yellow);
+}
+section.products p {
+  color: var(--white);
+}
+section.products .card {
+  display: flex;
+  flex-flow: column;
+  background-color: var(--white);
+  border-radius: 20px;
+  width: 50%;
+  max-width: 430px;
+  height: 555px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+section.products .card .copy {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px;
+}
+section.products .card .copy span {
+  font-size: 12px;
+  font-weight: 400;
+}
+section.products .card .card__img {
+  background-image: url("/files/product.webp");
+  background-size: cover;
+  background-position: center;
+  /* filter: brightness(50%); */
+  overflow: hidden;
+  border-end-end-radius: 20px;
+  border-end-start-radius: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: larger;
+  font-weight: bold;
+  flex-flow: column;
+  position: relative;
+}
+
+section.products .card .card__img .roll {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--black);
+  top: 0;
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  top: 100%;
+  transition: top 0.5s;
+}
+/* make .roll appear from the bottom of the card when hover over '.card__img' */
+section.products .card .card__img:hover .roll {
+  top: 0;
+  transition: top 0.5s;
+}
+section.products .card .card__img .roll .roll__msg {
+  padding-left: 60px;
+}
+
+/* IMC SECTION */
+.imc input[type="number"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #d78b45;
+  border-radius: 4px;
+}
+.imc button[type="submit"] {
+  width: 100%;
+  background-color: #d78b45;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.imc p {
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--gray);
+  color: var(--white);
+  text-align: center;
+  padding: 60px 0;
 }

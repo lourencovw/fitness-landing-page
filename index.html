@@ -6,29 +6,16 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script src='main.js'></script>
   <link rel="stylesheet" href="index.css">
+  <!-- install glide using cdn https://cdn.jsdelivr.net/npm/@glidejs/glide -->
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+
   <style>
   </style>
 </head>
 
 <body>
-  <header class="video-container">
-    <video autoplay muted loop class="background-video">
-      <source src="/files/video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <!-- Dark Overlay -->
-    <div class="video-overlay">
-      <div class="content">
-        <h1>CONQUISTE AGORA O CORPO DOS SEUS SONHOS!</h1>
-        <p>Já são mais de 100.000 alunos transformados. Seja você iniciante ou fanático por musculação o <strong>Treino São Miguelito é a escolha certa para você!</strong></p>
-        <button href="#" class="btn">Nossos Planos</button>
-      </div>
-    </div>
-  </header>
-
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-container">
@@ -48,20 +35,202 @@
       </div>
 
     </div>
+    <script>
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 2) {
+          navbar.classList.add('darker');
+        } else {
+          navbar.classList.remove('darker');
+        }
+      });
+    </script>
   </nav>
+  <header class="video-container">
+    <!-- Dark Overlay -->
+    <div class="video-overlay">
+      <video autoplay muted loop class="background-video">
+        <source src="/files/video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content">
+        <h1>CONQUISTE AGORA O CORPO DOS SEUS SONHOS!</h1>
+        <p>Já são mais de 100.000 alunos transformados. Seja você iniciante ou fanático por musculação o <strong>Treino
+            São Miguelito é a escolha certa para você!</strong></p>
+        <button href="#" class="btn">Nossos Planos</button>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <section>
-      <p>A SUA MELHOR FORMA</p>
-      <p>NUNCA ESTEVE TÃO PERTO!</p>
+    <section class="best-shape">
+      <div class="container">
+        <h2>A SUA MELHOR FORMA</h2>
+        <h2 class="yellow">NUNCA ESTEVE TÃO PERTO!</h2>
+        <hr>
+        <div class="history">
+          <p>Para quem não me conhece, meu nome é Miguel Fernandes, mais conhecido como São Miguelito. Sou formado em
+            Educação Física e pós-graduado em Fisiologia do exercício. Atuo há mais de 10 anos como personal e já tive
+            mais de 4.000 alunos individuais e 120.000 on-line.
+            <br>
+            <br>
+            Depois de muito buscar o que realmente dava resultado no treino, eu desenvolvi um método exclusivo de
+            treinamento que já foi testado e comprovado, e que agora estará em suas mãos. O meu objetivo é te fazer
+            treinar com resultados e motivação. Todas as planilhas que prescrevo são trocadas a cada 5 semanas e ainda
+            ofereço um suporte de 7 dias por semana diretamente COMIGO!
+            <br>
+            <br>
+            A partir de agora, você não vai mais perder para a procrastinação e falta de motivação. Eu estarei do seu
+            lado te ajudando a treinar, acompanhando sua evolução e sempre disponível para você.
+          </p>
+          <video controls src="/files/video1.mp4"></video>
+        </div>
+
+      </div>
     </section>
+    <section class="support">
+      <div class="container">
+        <p>SUPORTE 7 DIAS POR SEMANA</p>
+        <script>
+          // add script to make the message blink
+          const support = document.querySelector('.support p');
+          setInterval(() => {
+            support.classList.toggle('blink');
+          }, 1000);
+
+        </script>
+      </div>
+    </section>
+    <section class="carousel">
+      <div class="carousel__message">
+        <p class="top">junte-se a mais de</p>
+        <h2 class="mid">120.000 alunas!</h2>
+        <p class="bottom">Está esperando o que para mudar de rotina e liberar todo o seu potencial</p>
+      </div>
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+
+            <img class="glide__slide" src="/files/b-a.webp" alt="">
+
+          </ul>
+        </div>
+      </div>
+      <button href="#" class="btn">quero fazer parte</button>
+
+
+      <script>
+        new Glide('.glide', {
+          type: 'carousel',
+          autoplay: 2500,
+          perView: 4
+        }).mount();
+        // why glide is cut off? because the glide container is not wide enough
+
+      </script>
+    </section>
+    <section class="products">
+      <h2>Transforme sua vida</h2>
+      <h2 class="yellow">com nossos planos!</h2>
+      <p><strong>Em casa ou academia,</strong> dê o primeiro passo em<br>direção a uma vida mais saudável e feliz
+        <strong>hoje mesmo!</strong>
+      </p>
+      <div class="card">
+        <div class="copy">
+          PLATAFORMA <br>
+          DE TREINOS <br>
+          ON-LINE <br>
+          PARA HOMENS <br>
+          <span>PLANO MENSAL</span>
+        </div>
+        <div class="card__img">
+          <div>PASSE O MOUSE</div>
+          <div class="roll">
+            <div class="roll__msg">
+              ✔ Planilhas de treino novas a cada 5 semanas​
+              <br>
+              ✔ Vídeos para auxiliar a execução
+              <br>
+
+              ✔ Esclarecimento de dúvidas​
+              <br>
+
+              ✔ Assinatura recorrente<br>
+
+              ✔ Cancele quando quiser<br>
+
+              ✔ Garantia de 7 dias​<br>
+            </div>
+            <button class="btn btn-secondary">SAIBA MAIS</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="best-shape imc">
+      <div class="container">
+        <h2>ASSUMA O CONTROLE</h2>
+        <h2 class="yellow">DE SUA SAUDE!</h2>
+        <hr>
+        <div class="history">
+          <div>
+            <form action="">
+              <br><label for="height">Altura</label> <br>
+              <input type="number" name="height" id="height" placeholder="cm">
+              <br><label for="weight">Peso</label> <br>
+              <input type="number" name="weight" id="weight" placeholder="kg">
+              <br><button type="submit">Calcular</button><br>
+            </form>
+            <div class="result">
+              <p>Seu IMC é: <span id="imc"></span></p>
+            </div>
+            <script>
+              const form = document.querySelector('form');
+              const result = document.querySelector('#imc');
+              form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const height = document.querySelector('#height').value;
+                const weight = document.querySelector('#weight').value;
+                const imc = weight / ((height / 100) ** 2);
+                result.textContent = imc.toFixed(2);
+              });
+            </script>
+          </div>
+          <p style="font-size: 16px;">Use nossa calculadora de IMC para<br>
+            determinar seu Índice de Massa Corporal, um<br>
+            indicador crucial de sua saúde e<br>
+            condicionamento físico geral.<br>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
   </main>
   <footer>
-    FOOTER
+    Suporte técnico: suporte@saomiguelito.com
   </footer>
 
 </body>
-
-
-
 
 </html>
